@@ -12,15 +12,15 @@ class NetworkServicesImpl implements NetworkServices{
   NetworkServicesImpl(this._dio);
 
   @override
-  Future get(String url) async{
-  final response  = _dio.get(url);
-
+  Future<dynamic> get(String url) async{
+  final response  = await _dio.get(url);
+  return response.data;
   }
 
   @override
-  Future post(String url, dynamic body) {
-    final response = _dio.post(url,data: body);
-    return response;
+  Future post(String url, dynamic body)async {
+    final response = await _dio.post(url,data: body);
+    return response.data;
   }
 
 }
