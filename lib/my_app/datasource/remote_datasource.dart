@@ -11,7 +11,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   RemoteDataSourceImpl(this.networkServices);
   @override
   Future<List<PostModel>> getPost() async {
-    throw UnimplementedError();
+    final response =await networkServices.get('https://jsonplaceholder.typicode.com/posts');
+    final result = response.data as Map;
+
+  throw UnimplementedError();
   }
 
 }

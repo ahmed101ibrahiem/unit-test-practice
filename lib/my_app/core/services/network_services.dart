@@ -3,8 +3,8 @@
 import 'package:dio/dio.dart';
 
 abstract class NetworkServices {
-  Future<dynamic> get(String url);
-  Future <dynamic> post(String url, dynamic body);
+  Future<Response> get(String url);
+  Future <Response> post(String url, dynamic body);
 }
 
 class NetworkServicesImpl implements NetworkServices{
@@ -12,13 +12,13 @@ class NetworkServicesImpl implements NetworkServices{
   NetworkServicesImpl(this._dio);
 
   @override
-  Future<dynamic> get(String url) async{
+  Future<Response> get(String url) async{
   final response  = await _dio.get(url);
   return response.data;
   }
 
   @override
-  Future post(String url, dynamic body)async {
+  Future<Response> post(String url, dynamic body)async {
     final response = await _dio.post(url,data: body);
     return response.data;
   }
