@@ -39,4 +39,17 @@ void main() {
     // act
      postsCubit.loadPosts();
   });
+
+
+  test('emit post loading state then emit post error state', () {
+
+
+    // arrange
+    when(postsRepository.getPosts()).thenAnswer((_) async=> throw Exception());
+    final expetedState = [const PostsLoading(),const PostsError()];
+    // assert 
+expectLater(postsCubit.stream, emitsInAnyOrder(expetedState));
+    // act
+postsCubit.loadPosts();
+  });
 }

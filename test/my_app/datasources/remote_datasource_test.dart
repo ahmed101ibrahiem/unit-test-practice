@@ -34,7 +34,7 @@ void main() {
     // act
     final result =await remoteDataSource.getPosts();
 
-    // asset
+    // assert
     expect(result, posts);
   });
 
