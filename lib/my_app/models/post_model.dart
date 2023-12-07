@@ -1,12 +1,11 @@
-
-
 import 'dart:convert';
 
-class PostModel{
-  final int userId,id;
-  final String title, body;
-
-   PostModel({
+class PostModel {
+  final int userId;
+  final int id;
+  final String title;
+  final String body;
+  PostModel({
     required this.userId,
     required this.id,
     required this.title,
